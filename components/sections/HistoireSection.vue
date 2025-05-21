@@ -12,7 +12,7 @@
       notre position actuelle de référence dans la gastronomie japonaise
       traditionnelle à Paris.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4">
+    <div class="flex flex-col sm:flex-row gap-12">
       <img
         class="w-full sm:w-1/2 rounded-lg"
         src="/presentation1.jpg"
@@ -34,9 +34,9 @@
         </p>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row gap-4">
+    <div class="flex flex-col sm:flex-row gap-12">
       <div class="flex flex-col gap-4 order-2 sm:order-1">
-        <h3 class="text-xl font-bold">Notre Évolution</h3>
+        <h3 class="text-xl text-right font-bold">Notre Évolution</h3>
         <p class="text-gray-600 text-justify">
           L'aventure Sushi Shop débute en 2008 dans un petit local du quartier
           japonais de Paris, rue Sainte-Anne. Porté par une clientèle fidèle et
@@ -55,7 +55,7 @@
         alt="Sushi Shop Logo"
       />
     </div>
-    <div class="flex flex-col sm:flex-row gap-4">
+    <div class="flex flex-col sm:flex-row gap-12">
       <img
         class="w-full sm:w-1/2 rounded-lg"
         src="/presentation3.jpg"

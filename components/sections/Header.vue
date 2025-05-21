@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { Menu, X } from "lucide-vue-next";
+import Button from "~/components/ui/Button.vue";
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
@@ -53,11 +54,7 @@ const toggleMenu = () => {
         </ul>
       </nav>
       <div>
-        <button
-          class="bg-yellow-400 text-[#0a0a0a] font-bold px-6 py-2 rounded-lg transition-colors duration-300 hidden sm:block"
-        >
-          Commander
-        </button>
+        <Button label="Commander" />
       </div>
     </div>
     <div class="flex flex-col items-center justify-center mt-14 sm:mt-48">
@@ -68,16 +65,8 @@ const toggleMenu = () => {
         Une expérience culinaire unique avec les meilleurs ingrédients frais
       </p>
       <div class="flex flex-row gap-4 sm:mt-4 mt-8">
-        <button
-          class="bg-yellow-400 text-[#0a0a0a] font-bold px-6 py-2 rounded-lg transition-colors duration-300"
-        >
-          Commander
-        </button>
-        <button
-          class="bg-yellow-400 text-[#0a0a0a] font-bold px-6 py-2 rounded-lg transition-colors duration-300"
-        >
-          Voir la carte
-        </button>
+        <Button label="Commander" />
+        <Button label="Voir la carte" />
       </div>
     </div>
   </header>
