@@ -41,7 +41,7 @@ defineProps({
       <h3 class="text-lg font-bold text-gray-900">{{ title }}</h3>
       <p class="text-xl font-bold text-gray-900">{{ price }}€</p>
     </div>
-    <p class="text-center text-sm text-gray-600">
+    <p class="text-center text-sm text-gray-600 mb-2">
       {{ description }}
     </p>
     <motion.button
