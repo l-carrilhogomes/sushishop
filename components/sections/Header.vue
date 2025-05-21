@@ -2,7 +2,10 @@
 import { ref } from "vue";
 import { Menu, X } from "lucide-vue-next";
 import Button from "~/components/ui/Button.vue";
+import { useLenis } from "lenis/vue";
 const isMenuOpen = ref(false);
+
+const lenis = useLenis();
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -28,20 +31,30 @@ const toggleMenu = () => {
       <nav class="sm:hidden" v-if="isMenuOpen">
         <ul class="flex flex-col sm:flex-row gap-4 text-white font-semibold">
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="">Accueil</NuxtLink>
+            <NuxtLink
+              class="hover:text-yellow-400 cursor-pointer"
+              @click="lenis.scrollTo('#')"
+              >Accueil</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="#carte"
+            <NuxtLink
+              class="hover:text-yellow-400 cursor-pointer"
+              @click="lenis.scrollTo('#carte')"
               >La carte</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="#histoire"
+            <NuxtLink
+              class="hover:text-yellow-400 cursor-pointer"
+              @click="lenis.scrollTo('#histoire')"
               >Notre histoire</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="#contact"
+            <NuxtLink
+              class="hover:text-yellow-400 cursor-pointer"
+              @click="lenis.scrollTo('#contact')"
               >Contact</NuxtLink
             >
           </li>
@@ -50,20 +63,28 @@ const toggleMenu = () => {
       <nav class="sm:flex hidden">
         <ul class="flex flex-col sm:flex-row gap-4 text-white font-semibold">
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="">Accueil</NuxtLink>
+            <NuxtLink class="hover:text-yellow-400 cursor-pointer" href=""
+              >Accueil</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="#carte"
+            <NuxtLink
+              class="hover:text-yellow-400 cursor-pointer"
+              @click="lenis.scrollTo('#carte')"
               >La carte</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="#histoire"
+            <NuxtLink
+              class="hover:text-yellow-400 cursor-pointer"
+              @click="lenis.scrollTo('#histoire')"
               >Notre histoire</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink class="hover:text-yellow-400" href="#contact"
+            <NuxtLink
+              class="hover:text-yellow-400 cursor-pointer"
+              @click="lenis.scrollTo('#contact')"
               >Contact</NuxtLink
             >
           </li>
