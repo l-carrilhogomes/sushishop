@@ -28,29 +28,45 @@ const toggleMenu = () => {
       <nav class="sm:hidden" v-if="isMenuOpen">
         <ul class="flex flex-col sm:flex-row gap-4 text-white font-semibold">
           <li>
-            <a class="hover:text-yellow-400" href="">Accueil</a>
+            <NuxtLink class="hover:text-yellow-400" href="">Accueil</NuxtLink>
           </li>
           <li>
-            <a class="hover:text-yellow-400" href="#carte">La carte</a>
+            <NuxtLink class="hover:text-yellow-400" href="#carte"
+              >La carte</NuxtLink
+            >
           </li>
           <li>
-            <a class="hover:text-yellow-400" href="#histoire">Notre histoire</a>
+            <NuxtLink class="hover:text-yellow-400" href="#histoire"
+              >Notre histoire</NuxtLink
+            >
           </li>
-          <li><a class="hover:text-yellow-400" href="#contact">Contact</a></li>
+          <li>
+            <NuxtLink class="hover:text-yellow-400" href="#contact"
+              >Contact</NuxtLink
+            >
+          </li>
         </ul>
       </nav>
       <nav class="sm:flex hidden">
         <ul class="flex flex-col sm:flex-row gap-4 text-white font-semibold">
           <li>
-            <a class="hover:text-yellow-400" href="">Accueil</a>
+            <NuxtLink class="hover:text-yellow-400" href="">Accueil</NuxtLink>
           </li>
           <li>
-            <a class="hover:text-yellow-400" href="#carte">La carte</a>
+            <NuxtLink class="hover:text-yellow-400" href="#carte"
+              >La carte</NuxtLink
+            >
           </li>
           <li>
-            <a class="hover:text-yellow-400" href="#histoire">Notre histoire</a>
+            <NuxtLink class="hover:text-yellow-400" href="#histoire"
+              >Notre histoire</NuxtLink
+            >
           </li>
-          <li><a class="hover:text-yellow-400" href="#contact">Contact</a></li>
+          <li>
+            <NuxtLink class="hover:text-yellow-400" href="#contact"
+              >Contact</NuxtLink
+            >
+          </li>
         </ul>
       </nav>
       <div>
