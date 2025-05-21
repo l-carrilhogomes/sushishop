@@ -36,7 +36,7 @@
     </div>
     <div class="flex flex-col sm:flex-row gap-12">
       <div class="flex flex-col gap-4 order-2 sm:order-1">
-        <h3 class="text-xl text-right font-bold">Notre Évolution</h3>
+        <h3 class="text-xl sm:text-right font-bold">Notre Évolution</h3>
         <p class="text-gray-600 text-justify">
           L'aventure Sushi Shop débute en 2008 dans un petit local du quartier
           japonais de Paris, rue Sainte-Anne. Porté par une clientèle fidèle et
