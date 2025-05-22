@@ -13,7 +13,7 @@ const toggleCart = () => {
 </script>
 
 <template>
-  <div class="fixed bottom-8 right-8 z-40">
+  <div class="fixed bottom-5 right-5 z-40">
     <button
       @click="toggleCart"
       class="bg-[#F5C518] text-[#0a0a0a] p-4 rounded-full shadow-lg hover:bg-[#FFBD00] transition-all duration-300 relative"
