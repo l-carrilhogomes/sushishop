@@ -66,7 +66,7 @@ const addToCart = () => {
     <motion.button
       @click="addToCart"
       :whileHover="{ scale: 1.02 }"
-      class="bg-[#0a0a0a] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0a0a0a]/90 transition-all duration-300 flex flex-row gap-2 items-center justify-center"
+      class="bg-[#F5C518] text-[#0a0a0a] px-4 py-2 rounded-lg font-semibold hover:bg-[#FFBD00] transition-all duration-300 flex flex-row gap-2 items-center justify-center"
     >
       <ShoppingCart class="w-5 h-5" />
       Ajouter au panier
