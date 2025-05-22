@@ -3,6 +3,7 @@ import Header from "~/components/sections/Header.vue";
 import CarteSection from "~/components/sections/MenuSection.vue";
 import HistoireSection from "~/components/sections/HistoireSection.vue";
 import ContactSection from "~/components/sections/ContactSection.vue";
+import FloatingCartButton from "~/components/ui/FloatingCartButton.vue";
 import { VueLenis } from "lenis/vue";
 </script>
 
@@ -12,6 +13,7 @@ import { VueLenis } from "lenis/vue";
   <CarteSection />
   <HistoireSection />
   <ContactSection />
+  <FloatingCartButton />
 </template>
 
 <style>

@@ -1,9 +1,11 @@
-<script setup></script>
+<script setup>
+import { motion } from "motion-v";
+</script>
 <template>
   <section id="histoire" class="py-20 max-w-5xl mx-auto px-6">
     <div class="mb-16 max-w-2xl mx-auto">
       <h2 class="text-3xl font-light text-gray-900 text-center mb-6">
-        Notre histoire
+        <span class="border-b-2 border-[#F5C518]">Notre histoire</span>
       </h2>
       <p class="text-center text-gray-600">
         Découvrez l'histoire passionnante de Sushi Shop, de nos humbles débuts à
@@ -12,15 +14,18 @@
       </p>
     </div>
 
-    <div class="space-y-24">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <img
+    <div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <motion.img
+          :whileHover="{ scale: 1.01 }"
           class="w-full h-[400px] object-cover rounded"
           src="/presentation1.jpg"
           alt="Notre Passion"
         />
         <div class="flex flex-col justify-center">
-          <h3 class="text-xl font-light mb-4">Notre Passion</h3>
+          <h3 class="text-xl font-light mb-4">
+            <span class="border-b-2 border-[#F5C518]">Notre Passion</span>
+          </h3>
           <p class="text-gray-600">
             Chez Sushi Shop, tout commence avec une fascination profonde pour
             l'art culinaire japonais. Dès le premier jour, notre ambition a été
@@ -35,9 +40,11 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         <div class="flex flex-col justify-center order-2 md:order-1">
-          <h3 class="text-xl font-light mb-4">Notre Évolution</h3>
+          <h3 class="text-xl font-light mb-4">
+            <span class="border-b-2 border-[#F5C518]">Notre Évolution</span>
+          </h3>
           <p class="text-gray-600">
             L'aventure Sushi Shop débute en 2008 dans un petit local du quartier
             japonais de Paris, rue Sainte-Anne. Porté par une clientèle fidèle
@@ -51,7 +58,8 @@
             traditionnelle.
           </p>
         </div>
-        <img
+        <motion.img
+          :whileHover="{ scale: 1.01 }"
           class="w-full h-[400px] object-cover rounded order-1 md:order-2"
           src="/presentation2.jpg"
           alt="Notre Évolution"
@@ -59,13 +67,16 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <img
+        <motion.img
+          :whileHover="{ scale: 1.01 }"
           class="w-full h-[400px] object-cover rounded"
           src="/presentation3.jpg"
           alt="Notre Vision"
         />
         <div class="flex flex-col justify-center">
-          <h3 class="text-xl font-light mb-4">Notre Vision</h3>
+          <h3 class="text-xl font-light mb-4">
+            <span class="border-b-2 border-[#F5C518]">Notre Vision</span>
+          </h3>
           <p class="text-gray-600">
             Plus qu'un restaurant, Sushi Shop aspire à devenir un véritable pont
             culturel entre le Japon et Paris. Nous souhaitons faire découvrir la

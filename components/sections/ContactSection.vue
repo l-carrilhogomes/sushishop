@@ -5,8 +5,8 @@ import { Phone, Mail, MapPin } from "lucide-vue-next";
 <template>
   <section id="contact" class="py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-[#0a0a0a] text-center mb-10">
-        Contactez-nous
+      <h2 class="text-4xl font-bold text-[#0a0a0a] text-center mb-24">
+        <span class="border-b-2 border-[#F5C518]">Contactez-nous</span>
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <p class="text-gray-700 mb-4">
