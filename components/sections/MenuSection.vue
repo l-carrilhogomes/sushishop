@@ -18,7 +18,7 @@ import Card from "~/components/ui/Card.vue";
           title="Bowl 1"
           description="Maïs, choux rouges, tomates cerises, croutons, céréales"
           image="/carte/bowl/1.jpg"
-          :price="15"
+          :price="19.99"
           :bestSeller="true"
         />
         <Card
@@ -26,14 +26,14 @@ import Card from "~/components/ui/Card.vue";
           title="Bowl 2"
           description="Saumon, riz, algues, edamame, avocat, sésame, sauce soja"
           image="/carte/bowl/2.jpg"
-          :price="15"
+          :price="19.99"
         />
         <Card
           :id="3"
           title="Bowl 3"
           description="Crevettes, algues, choux blanc, sésame, champignons, tomates"
           image="/carte/bowl/3.jpg"
-          :price="15"
+          :price="19.99"
         />
       </div>
       <h2
@@ -47,21 +47,21 @@ import Card from "~/components/ui/Card.vue";
           title="Sushi 1"
           description="Algues, riz, saumon"
           image="/carte/sushi/1.jpg"
-          :price="15"
+          :price="14.99"
         />
         <Card
           :id="5"
           title="Sushi 2"
           description="Riz, saumon, fromage, algues, poudre spicy"
           image="/carte/sushi/2.jpg"
-          :price="15"
+          :price="14.99"
         />
         <Card
           :id="6"
           title="Sushi 3"
           description="Riz, sésame, thon, avocat, mayonnaise spicy"
           image="/carte/sushi/3.jpg"
-          :price="15"
+          :price="19.99"
           :bestSeller="true"
         />
       </div>

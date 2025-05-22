@@ -2,8 +2,16 @@
 import { useCart } from "~/stores/cart";
 import { X } from "lucide-vue-next";
 import { motion } from "motion-v";
+import { computed, ref } from "vue";
 
 const cart = useCart();
+const deliveryInfo = ref({
+  street: "",
+  postalCode: "",
+  city: "",
+  phone: "",
+  additionalInfo: "",
+});
 
 const props = defineProps({
   isOpen: {
@@ -16,6 +24,31 @@ const emit = defineEmits(["close"]);
 
 const closeModal = () => {
   emit("close");
+};
+
+const FREE_DELIVERY = 50;
+const DELIVERY_FEE = 2.99;
+
+const fraisLivraison = computed(() => {
+  return cart.cartTotal >= FREE_DELIVERY ? 0 : DELIVERY_FEE;
+});
+
+const totalAvecLivraison = computed(() => {
+  return cart.cartTotal + fraisLivraison.value;
+});
+
+const handleOrder = () => {
+  if (
+    !deliveryInfo.value.street ||
+    !deliveryInfo.value.postalCode ||
+    !deliveryInfo.value.city ||
+    !deliveryInfo.value.phone
+  ) {
+    alert("Veuillez remplir tous les champs obligatoires");
+    return;
+  }
+  // TODO: Implement order logic
+  console.log("Order placed with address:", deliveryInfo.value);
 };
 </script>
 
@@ -61,9 +94,12 @@ const closeModal = () => {
             <p class="text-gray-600">{{ item.price }}€</p>
             <div class="flex items-center gap-2 mt-2">
               <button
-                @click="cart.updateQuantity(item.id, item.quantity - 1)"
+                @click="
+                  item.quantity <= 1
+                    ? cart.removeFromCart(item.id)
+                    : cart.updateQuantity(item.id, item.quantity - 1)
+                "
                 class="px-2 py-1 bg-gray-100 rounded"
-                :disabled="item.quantity <= 1"
               >
                 -
               </button>
@@ -86,11 +122,124 @@ const closeModal = () => {
 
         <div class="border-t pt-4 mt-4">
           <div class="flex justify-between font-bold text-lg">
-            <span>Total</span>
-            <span>{{ cart.cartTotal }}€</span>
+            <span>Sous-total</span>
+            <span>{{ cart.cartTotal.toFixed(2) }}€</span>
           </div>
+
+          <div class="flex justify-between text-sm mt-2">
+            <span>Frais de livraison</span>
+            <span>{{ fraisLivraison.toFixed(2) }}€</span>
+          </div>
+
+          <div
+            v-if="cart.cartTotal < FREE_DELIVERY"
+            class="text-sm text-gray-600 mt-2"
+          >
+            Plus que
+            {{ (FREE_DELIVERY - cart.cartTotal).toFixed(2) }}€ pour la livraison
+            gratuite !
+          </div>
+          <div v-else class="text-sm text-green-600 mt-2">
+            Livraison gratuite !
+          </div>
+
+          <div class="flex justify-between font-bold text-lg mt-4">
+            <span>Total</span>
+            <span>{{ totalAvecLivraison.toFixed(2) }}€</span>
+          </div>
+
+          <div class="mt-6 space-y-4">
+            <h3 class="text-lg font-semibold text-gray-800">
+              Adresse de livraison
+            </h3>
+
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <label
+                  for="street"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Adresse <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="street"
+                  v-model="deliveryInfo.street"
+                  type="text"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F5C518] focus:border-transparent"
+                  placeholder="123 rue de la Paix"
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    for="postalCode"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Code postal <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="postalCode"
+                    v-model="deliveryInfo.postalCode"
+                    type="text"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F5C518] focus:border-transparent"
+                    placeholder="75000"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="city"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Ville <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="city"
+                    v-model="deliveryInfo.city"
+                    type="text"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F5C518] focus:border-transparent"
+                    placeholder="Paris"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="phone"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Téléphone <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="phone"
+                  v-model="deliveryInfo.phone"
+                  type="tel"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F5C518] focus:border-transparent"
+                  placeholder="06 12 34 56 78"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="additionalInfo"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Informations complémentaires
+                </label>
+                <textarea
+                  id="additionalInfo"
+                  v-model="deliveryInfo.additionalInfo"
+                  rows="2"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F5C518] focus:border-transparent"
+                  placeholder="Code d'entrée, étage, digicode..."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
           <button
-            class="w-full mt-4 bg-[#F5C518] text-[#0a0a0a] font-bold px-6 py-2 rounded-lg transition-colors duration-300 hover:bg-[#FFBD00]"
+            @click="handleOrder"
+            class="w-full mt-6 bg-[#F5C518] text-[#0a0a0a] font-bold px-6 py-2 rounded-lg transition-colors duration-300 hover:bg-[#FFBD00]"
           >
             Commander
           </button>
