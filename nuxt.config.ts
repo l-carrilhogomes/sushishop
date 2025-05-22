@@ -1,4 +1,9 @@
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: "SushiShop",
+    },
+  },
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
   modules: [
