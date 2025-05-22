@@ -1,13 +1,15 @@
 <script setup>
-import { motion } from "motion-v";
-import { Star } from "lucide-vue-next";
 import Card from "~/components/ui/Card.vue";
 </script>
 <template>
-  <section id="carte" class="flex flex-col gap-4 bg-[#0a0a0a] py-10">
+  <section id="menu" class="flex flex-col gap-4 bg-[#0a0a0a] py-10">
     <h2 class="text-4xl font-bold text-center text-white mt-10">La carte</h2>
     <div class="mx-auto w-4/5 sm:w-3/5">
-      <h2 class="text-2xl font-bold mb-2 text-white">Les Bowls</h2>
+      <h2
+        class="text-3xl font-bold mb-4 text-white mt-10 pb-2 border-b-2 border-[#F5C518] inline-block"
+      >
+        Les Bowls
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <Card
           title="Bowl 1"
@@ -29,7 +31,11 @@ import Card from "~/components/ui/Card.vue";
           :price="15"
         />
       </div>
-      <h2 class="text-2xl font-bold mb-2 text-white mt-10">Les Sushis</h2>
+      <h2
+        class="text-3xl font-bold mb-4 text-white mt-12 pb-2 border-b-2 border-[#F5C518] inline-block"
+      >
+        Les Sushis
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <Card
           title="Sushi 1"

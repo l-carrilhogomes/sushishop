@@ -1,6 +1,7 @@
 <script setup>
 import { motion } from "motion-v";
 import { Star } from "lucide-vue-next";
+import { ShoppingCart } from "lucide-vue-next";
 defineProps({
   title: {
     type: String,
@@ -31,7 +32,7 @@ defineProps({
   >
     <div
       v-if="bestSeller"
-      class="flex flex-row gap-1 items-center absolute top-5 right-5 bg-yellow-400 px-2 py-1 rounded-lg z-10"
+      class="flex flex-row gap-1 items-center absolute top-5 right-5 bg-[#F5C518] px-2 py-1 rounded-lg z-10"
     >
       <Star fill="white" class="w-4 h-4 text-white" />
       <p class="text-white font-semibold text-sm">Best-seller</p>
@@ -46,8 +47,9 @@ defineProps({
     </p>
     <motion.button
       :whileHover="{ scale: 1.02 }"
-      class="bg-[#0a0a0a] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0a0a0a]/90 transition-all duration-300"
+      class="bg-[#0a0a0a] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0a0a0a]/90 transition-all duration-300 flex flex-row gap-2 items-center justify-center"
     >
+      <ShoppingCart class="w-5 h-5" />
       Ajouter au panier
     </motion.button>
   </motion.div>

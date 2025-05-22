@@ -6,5 +6,13 @@ export default defineNuxtConfig({
     "nuxt-lucide-icons",
     "motion-v/nuxt",
     "lenis/nuxt",
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          "Nunito Sans": true,
+        },
+      },
+    ],
   ],
 });

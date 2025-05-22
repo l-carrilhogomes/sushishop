@@ -3,6 +3,8 @@ import { ref } from "vue";
 import { Menu, X } from "lucide-vue-next";
 import Button from "~/components/ui/Button.vue";
 import { useLenis } from "lenis/vue";
+import { ShoppingCart } from "lucide-vue-next";
+
 const isMenuOpen = ref(false);
 
 const lenis = useLenis();
@@ -17,7 +19,7 @@ const toggleMenu = () => {
     <div class="flex flex-col sm:flex-row justify-around items-center py-4">
       <div class="flex flex-col items-center gap-2">
         <h1 class="text-white text-2xl font-bold">
-          <span class="text-yellow-400">Sushi</span>Shop
+          <span class="text-[#F5C518]">Sushi</span>Shop
         </h1>
         <div class="sm:hidden">
           <button v-if="!isMenuOpen" @click="toggleMenu" class="text-white">
@@ -32,28 +34,28 @@ const toggleMenu = () => {
         <ul class="flex flex-col sm:flex-row gap-4 text-white font-semibold">
           <li>
             <NuxtLink
-              class="hover:text-yellow-400 cursor-pointer"
+              class="hover:text-[#D4A400] cursor-pointer"
               @click="lenis.scrollTo('#')"
               >Accueil</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              class="hover:text-yellow-400 cursor-pointer"
-              @click="lenis.scrollTo('#carte')"
-              >La carte</NuxtLink
+              class="hover:text-[#D4A400] cursor-pointer"
+              @click="lenis.scrollTo('#menu')"
+              >Menu</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              class="hover:text-yellow-400 cursor-pointer"
+              class="hover:text-[#D4A400] cursor-pointer"
               @click="lenis.scrollTo('#histoire')"
               >Notre histoire</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              class="hover:text-yellow-400 cursor-pointer"
+              class="hover:text-[#D4A400] cursor-pointer"
               @click="lenis.scrollTo('#contact')"
               >Contact</NuxtLink
             >
@@ -63,47 +65,48 @@ const toggleMenu = () => {
       <nav class="sm:flex hidden">
         <ul class="flex flex-col sm:flex-row gap-4 text-white font-semibold">
           <li>
-            <NuxtLink class="hover:text-yellow-400 cursor-pointer" href=""
+            <NuxtLink class="hover:text-[#D4A400] cursor-pointer" href=""
               >Accueil</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              class="hover:text-yellow-400 cursor-pointer"
-              @click="lenis.scrollTo('#carte')"
-              >La carte</NuxtLink
+              class="hover:text-[#D4A400] cursor-pointer"
+              @click="lenis.scrollTo('#menu')"
+              >Menu</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              class="hover:text-yellow-400 cursor-pointer"
+              class="hover:text-[#D4A400] cursor-pointer"
               @click="lenis.scrollTo('#histoire')"
               >Notre histoire</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              class="hover:text-yellow-400 cursor-pointer"
+              class="hover:text-[#D4A400] cursor-pointer"
               @click="lenis.scrollTo('#contact')"
               >Contact</NuxtLink
             >
           </li>
+          <li>
+            <div class="cursor-pointer">
+              <ShoppingCart />
+            </div>
+          </li>
         </ul>
       </nav>
-      <div>
-        <Button label="Commander" />
-      </div>
     </div>
     <div class="flex flex-col items-center justify-center mt-14 sm:mt-48">
       <h1 class="text-white sm:text-4xl text-2xl font-bold text-center">
-        Découvrez l'art du <span class="text-yellow-400">sushi japonais</span>
+        Découvrez l'art du <span class="text-[#F5C518]">sushi japonais</span>
       </h1>
       <p class="text-white sm:text-xl text-lg text-center">
         Une expérience culinaire unique avec les meilleurs ingrédients frais
       </p>
       <div class="flex flex-row gap-4 sm:mt-4 mt-8">
-        <Button label="Commander" />
-        <Button label="Voir la carte" />
+        <Button label="Voir la carte" @click="lenis.scrollTo('#menu')" />
       </div>
     </div>
   </header>
