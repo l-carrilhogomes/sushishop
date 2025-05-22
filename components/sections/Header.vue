@@ -4,13 +4,21 @@ import { Menu, X } from "lucide-vue-next";
 import Button from "~/components/ui/Button.vue";
 import { useLenis } from "lenis/vue";
 import { ShoppingCart } from "lucide-vue-next";
+import CartModal from "~/components/ui/CartModal.vue";
+import { useCart } from "~/stores/cart";
 
 const isMenuOpen = ref(false);
+const isCartOpen = ref(false);
+const cart = useCart();
 
 const lenis = useLenis();
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const toggleCart = () => {
+  isCartOpen.value = !isCartOpen.value;
 };
 </script>
 
@@ -91,8 +99,14 @@ const toggleMenu = () => {
             >
           </li>
           <li>
-            <div class="cursor-pointer">
+            <div class="cursor-pointer relative" @click="toggleCart">
               <ShoppingCart />
+              <div
+                v-if="cart.cartItemsCount > 0"
+                class="absolute -top-2 -right-2 bg-[#F5C518] text-[#0a0a0a] text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                {{ cart.cartItemsCount }}
+              </div>
             </div>
           </li>
         </ul>
@@ -109,5 +123,6 @@ const toggleMenu = () => {
         <Button label="Voir la carte" @click="lenis.scrollTo('#menu')" />
       </div>
     </div>
+    <CartModal :isOpen="isCartOpen" @close="isCartOpen = false" />
   </header>
 </template>

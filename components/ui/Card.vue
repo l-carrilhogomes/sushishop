@@ -2,7 +2,15 @@
 import { motion } from "motion-v";
 import { Star } from "lucide-vue-next";
 import { ShoppingCart } from "lucide-vue-next";
-defineProps({
+import { useCart } from "~/stores/cart";
+
+const cart = useCart();
+
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -24,6 +32,16 @@ defineProps({
     required: false,
   },
 });
+
+const addToCart = () => {
+  cart.addToCart({
+    id: props.id,
+    name: props.title,
+    price: props.price,
+    image: props.image,
+    quantity: 1,
+  });
+};
 </script>
 <template>
   <motion.div
@@ -46,6 +64,7 @@ defineProps({
       {{ description }}
     </p>
     <motion.button
+      @click="addToCart"
       :whileHover="{ scale: 1.02 }"
       class="bg-[#0a0a0a] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0a0a0a]/90 transition-all duration-300 flex flex-row gap-2 items-center justify-center"
     >
