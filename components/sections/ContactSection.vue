@@ -20,7 +20,7 @@ import { Phone, Mail, MapPin } from "lucide-vue-next";
           </div>
           <div class="flex items-center gap-2">
             <Mail class="w-6 h-6 text-[#0a0a0a]" />
-            <p class="text-gray-700">contact@sushi-restaurant.com</p>
+            <p class="text-gray-700">contact@sushishop.fr</p>
           </div>
           <div class="flex items-center gap-2">
             <MapPin class="w-6 h-6 text-[#0a0a0a]" />
