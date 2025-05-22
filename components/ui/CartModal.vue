@@ -104,7 +104,17 @@ const handleOrder = () => {
               >
                 -
               </button>
-              <span>{{ item.quantity }}</span>
+              <input
+                type="number"
+                v-model.number="item.quantity"
+                @change="
+                  item.quantity <= 0
+                    ? cart.removeFromCart(item.id)
+                    : cart.updateQuantity(item.id, item.quantity)
+                "
+                min="0"
+                class="w-12 text-center px-1 py-1 border border-gray-300 rounded"
+              />
               <button
                 @click="cart.updateQuantity(item.id, item.quantity + 1)"
                 class="px-2 py-1 bg-gray-100 rounded"
