@@ -29,12 +29,12 @@ const closeModal = () => {
 const FREE_DELIVERY = 50;
 const DELIVERY_FEE = 2.99;
 
-const fraisLivraison = computed(() => {
+const deliveryFee = computed(() => {
   return cart.cartTotal >= FREE_DELIVERY ? 0 : DELIVERY_FEE;
 });
 
-const totalAvecLivraison = computed(() => {
-  return cart.cartTotal + fraisLivraison.value;
+const totalWithDelivery = computed(() => {
+  return cart.cartTotal + deliveryFee.value;
 });
 
 const handleOrder = () => {
@@ -47,8 +47,9 @@ const handleOrder = () => {
     alert("Veuillez remplir tous les champs obligatoires");
     return;
   }
-  // TODO: Implement order logic
+
   console.log("Order placed with address:", deliveryInfo.value);
+  closeModal();
 };
 </script>
 
@@ -128,7 +129,7 @@ const handleOrder = () => {
 
           <div class="flex justify-between text-sm mt-2">
             <span>Frais de livraison</span>
-            <span>{{ fraisLivraison.toFixed(2) }}€</span>
+            <span>{{ deliveryFee.toFixed(2) }}€</span>
           </div>
 
           <div
@@ -145,7 +146,7 @@ const handleOrder = () => {
 
           <div class="flex justify-between font-bold text-lg mt-4">
             <span>Total</span>
-            <span>{{ totalAvecLivraison.toFixed(2) }}€</span>
+            <span>{{ totalWithDelivery.toFixed(2) }}€</span>
           </div>
 
           <div class="mt-6 space-y-4">
